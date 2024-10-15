@@ -143,7 +143,7 @@ public class MLPClassifier
     }
     private void InicializarPesos()
     {
-        Random rand = new Random();
+        Random rand = new();
 
         // Inicialização dos pesos e bias
         for (int c = 0; c < 4; c++)
@@ -184,7 +184,7 @@ public class MLPClassifier
                 for (int j = 0; j < saida.Length; j++)
                 {
                     int expectedOutput = (saidasEsperadas[i] == j) ? 1 : 0; // One-hot encoding (Vi esse algoritmo na internet, colocando 1 na posição correpondente a classe desejada 
-                    erroTotal += Math.Pow(expectedOutput - saida[j], 2); // Calculando o erro pela soma dos erros quadráticos, também retirado dos slides da aula 2
+                    erroTotal += Math.Pow(expectedOutput - saida[j], 2); // Calculando o erro total pelos erros quadráticos, também retirado dos slides da aula 2
                 }
                 //Fazendo a retroalimentação após calcular o erro para cada entrada, conforme algoritmo visto na aula
                 Backpropagate(entradas[i], saidasEsperadas[i], taxaAprendizado);
